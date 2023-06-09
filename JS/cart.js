@@ -10,7 +10,7 @@ function updateProductInput(product, isAdding,price){
     productInput.value = productNumber;
     const updateTotal = document.getElementById(product + '-total');
     updateTotal.innerText = productNumber * price;
-    
+    calculateTotal();
 }
 
 function commonProductInput(product){
@@ -22,15 +22,16 @@ function commonProductInput(product){
 function calculateTotal(){
     const iphoneMaxAmmount = commonProductInput('iphone-max') * 1680;
     const iphoneAmmount = commonProductInput('iphone-14') * 1480;
-    const appleWatchAmmount = commonProductInput('Apple-watch') * 1450;
-    const appleWatch2Ammount = commonProductInput('Apple-watch2') * 1550;
-    const subTotal = iphoneMaxAmmount + iphoneAmmount + appleWatchAmmount + appleWatch2Ammount;
+    const WatchAmmount = commonProductInput('Apple-watch') * 1450;
+    const appleWatchAmmount = commonProductInput('Apple-watch2') * 1550;
+    const subTotal = iphoneMaxAmmount + iphoneAmmount + WatchAmmount + appleWatchAmmount;
     const tax = subTotal / 10;
     const grandTotal = subTotal + tax;
-// console.log(subTotal);
-    document.getElementById('price').innerText = subTotal;
-    document.getElementById('tax-ammount').innerText = tax;
-    document.getElementById('total-price').innerText = grandTotal;
+ console.log(tax);
+
+    document.getElementById("price").innerText = subTotal;
+    document.getElementById("tax-ammount").innerText = tax;
+    document.getElementById("total-price").innerText = grandTotal;
 
     
 
@@ -38,6 +39,7 @@ function calculateTotal(){
 
 document.getElementById('iphone-max-plus').addEventListener('click',function(){
  updateProductInput('iphone-max',true,1680)
+
 })
 document.getElementById('iphone-max-minus').addEventListener('click',function(){
     updateProductInput('iphone-max',false,1680)
