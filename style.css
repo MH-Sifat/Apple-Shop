@@ -61,3 +61,14 @@ body{
 	border: none;
 	color: #fff;
 }
+
+@media only screen and (max-width: 576px) {
+#sm{
+	flex-direction: column;
+	align-items: center;
+
+}
+#sm >.card{
+	margin-bottom: 2rem;
+}
+  }
